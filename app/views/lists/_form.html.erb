@@ -1,0 +1,13 @@
+<%= simple_form_for @list do |f|%>
+	<p><%= f.input :name%></p>
+	<h3>List Items</h3>
+	<div id="list_items">
+		<%= f.simple_fields_for :list_items, (@list.list_items.blank? ? @list.list_items.build : @list.list_items) do |list_item|%>
+			<%= render 'list_item_fields', f: list_item%>
+			<div class="links">
+				<%= link_to_add_association 'add list item', f, :list_items%>
+			</div>
+		<% end %>
+	</div>
+	<p><%= f.submit%></p>
+<% end %>

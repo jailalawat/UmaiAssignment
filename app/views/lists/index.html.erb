@@ -1,0 +1,26 @@
+<h1>Lists</h1>
+<table border="1">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>List Items</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @lists.each do |list| %>
+			<tr>
+				<td><%= list.id %></td>
+				<td><%= list.name%></td>
+				<td><%= link_to list.list_items.limit(5).pluck(:name).to_sentence, list_list_items_path(list)%></td>
+				<td>
+					<%= link_to 'Edit', edit_list_path(list)%> || 
+					<%= link_to 'Delete', list_path(list), method: :delete, data: {:confirm => 'Are you sure?'}%>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<p><%= will_paginate @lists %></p>
+<p><%=link_to 'Add New', new_list_path%></p>
