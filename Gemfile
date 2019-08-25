@@ -60,7 +60,6 @@ group :test do
   gem 'chromedriver-helper'
   # for testcase
   gem 'faker'
-  gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
 end
