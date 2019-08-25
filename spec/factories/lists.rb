@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :list do
-    name "List"
-    is_deleted false
+    name { "List" }
+    is_deleted { false }
   end
 end
